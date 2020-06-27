@@ -22,7 +22,12 @@ Vue.use(VueRouter)
     path: '/admin',
     name: 'Admin',
     component: () => import('../views/Admin.vue')
-  }
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: () => import('../views/NotFound.vue')
+},
 ]
 
 const router = new VueRouter({
