@@ -1,10 +1,20 @@
 <template>
   <div id="app">
-    <!-- Navbar con logo e items 'Artistas', Artículos y Admin -->
+    <nav-bar></nav-bar>
     <router-view/>
     <!-- footer con íconos de RRSS e info de la revista -->
   </div>
 </template>
+
+<script>
+import NavBar from './components/NavBar'
+export default {
+  name:'Artistas',
+  components: {
+    NavBar,
+  }
+}
+</script>
 
 <style>
 #app {
