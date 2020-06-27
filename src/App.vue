@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <!-- Navbar con logo e items 'Artistas', Artículos y Admin -->
     <router-view/>
+    <!-- footer con íconos de RRSS e info de la revista -->
   </div>
 </template>
 
