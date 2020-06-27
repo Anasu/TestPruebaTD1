@@ -11,8 +11,10 @@
           :alt="item.name"
           
         ></b-card-img>
-        <b-card-title 
-          :title="item.name"></b-card-title>
+        <b-card-title :title="item.name"></b-card-title>
+        <b-card-text>
+          <b-button @click="comentar(item.mbid)">Comentar</b-button>
+        </b-card-text>
         <template v-slot:footer>
           <small class="text-muted">Ha sido escuchado {{ item.listeners }} veces</small>
         </template>
@@ -36,6 +38,10 @@ export default {
       ...mapActions([
         'fillDestacados',
       ]),
+      comentar(id)
+      {
+        this.$router.push(`/articulos?id=${id}`);
+      }
     },
     beforeMount: function () {
       this.fillDestacados();

@@ -1,16 +1,35 @@
 <template>
   <div class="articulos">
-    <articulo></articulo>
+    <b-card
+      overlay
+      :img-src="getArtista.image[4]['#text']"
+      :img-alt="getArtista.name"
+      text-variant="white"
+      :title="getArtista.name"
+      sub-title="Comentarios"
+    >
+    </b-card>
   </div>
 </template>
 
 <script>
-import Articulo from '../components/Articulo'
-
+import { mapActions, mapGetters } from 'vuex';
 export default {
-  name:'Articulos',
-  components: {
-    Articulo,
+  name: 'Articulos',
+  methods: {
+    ...mapActions([
+      'apiArtist'
+    ])
+  },
+  computed: {
+    ...mapGetters([
+      'getArtista'
+    ])
+  },
+  beforeMount()
+  {
+    let aQuery = this.$route.query.id;
+    this.currentArtist(aQuery);
   }
 }
 </script>
