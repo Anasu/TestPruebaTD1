@@ -2,16 +2,19 @@
   <div id="app">
     <nav-bar></nav-bar>
     <router-view/>
-    <!-- footer con íconos de RRSS e info de la revista -->
+    <Footer></Footer> <!-- por alguna razon, en minusculas no funciona -->
   </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
+
 export default {
   name:'Artistas',
   components: {
     NavBar,
+    Footer,
   }
 }
 </script>
