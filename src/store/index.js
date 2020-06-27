@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 // js por mientras
-import {apiResDestacados} from '../../dummyAPI'
+import { apiCall } from '../config/apiConfig'
 
 Vue.use(Vuex)
 
@@ -36,16 +36,22 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    fillDestacados(context) 
-    {
-      let apiRes = apiResDestacados.artists.artist;
+    fillDestacados(context) {
+      let callTop = `method=chart.gettopartists&limit=4&page=1`
 
-      context.commit('FILLDESTACADOS', apiRes);
+      async function apiRes () {
+        const apiOBJ = await (
+            await apiCall(callTop)
+        ).data.artists.artist;
+        context.commit('FILLDESTACADOS', apiOBJ);
+    }
+    
+    apiRes()
     },
     currentArtist(context, artist) 
     {
       context.commit('CURRENTARTIST', artist)
-    }
+    },
   },
   modules: {
   }
