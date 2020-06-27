@@ -18,7 +18,7 @@ export default {
   name: 'Articulos',
   methods: {
     ...mapActions([
-      'apiArtist'
+      'currentArtist'
     ])
   },
   computed: {

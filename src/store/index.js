@@ -30,27 +30,44 @@ export default new Vuex.Store({
     {
       state.destacados = apiRes;
     },
-    CURRENTARTIST(state, artist)
+    CURRENTARTIST(state, artObj)
     {
-      state.currArtist = artist;
+      state.currArtist = artObj;
+    },
+    CLEARCURRENT(state)
+    {
+      state.currArtist = []
     }
   },
   actions: {
     fillDestacados(context) {
       let callTop = `method=chart.gettopartists&limit=4&page=1`
 
-      async function apiRes () {
+      async function apiRes () 
+      {
         const apiOBJ = await (
             await apiCall(callTop)
         ).data.artists.artist;
         context.commit('FILLDESTACADOS', apiOBJ);
-    }
-    
-    apiRes()
+      }
+      
+      apiRes();
     },
     currentArtist(context, artist) 
     {
-      context.commit('CURRENTARTIST', artist)
+      context.commit('CLEARCURRENT')
+      
+      let callCurr = `method=artist.getinfo&mbid=${artist}`;
+
+      async function apiRes () 
+      {
+        const apiOBJ = await(
+          await apiCall(callCurr)
+        ).data.artist;
+        context.commit('CURRENTARTIST', apiOBJ)
+      }
+
+      apiRes();
     },
   },
   modules: {

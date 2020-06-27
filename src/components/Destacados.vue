@@ -43,7 +43,8 @@ export default {
         this.$router.push(`/articulos?id=${id}`);
       }
     },
-    beforeMount: function () {
+    beforeMount() 
+    {
       this.fillDestacados();
     }
 }

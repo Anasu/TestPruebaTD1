@@ -1,9 +1,14 @@
 <template>
   <div>
     <!-- Navbar con logo e items 'Artistas', Artículos y Admin -->
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar toggleable="lg" type="dark" variant="danger">
       <!-- Logo -->
-      <b-navbar-brand href="#">Actual Music</b-navbar-brand>
+      <b-navbar-brand href="#">
+        <router-link 
+          :to="{name: 'Artistas'}" 
+          class="navbar_title"
+        >Actual Music</router-link>
+      </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -49,4 +54,14 @@
   }
 }
 
+.navbar_title {
+  text-decoration: none;
+  color: white;
+  font-size: 1.25rem;
+
+  &:hover {
+    font-weight: bold;
+    color: white;
+  }
+}
 </style>
