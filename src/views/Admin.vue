@@ -2,6 +2,7 @@
   <div>
     <!-- tabla fea con botones. Se sugieren los sgtes campos:<template>
       - N° - Artista - Artículo - Editar - Eliminar - Ver - -->
+      <p>Estás en Admin</p>
   </div>
 </template>
 
