@@ -3,7 +3,7 @@ node_modules
 /dist
 
 # Config Files
-src/config
+src/config/apiConfig.js
 
 # local env files
 .env.local
