@@ -1,6 +1,16 @@
 <template>
   <div class="articulos">
-    <!-- imagen artista -->
-    <p>Estás en Artículos</p>
+    <articulo></articulo>
   </div>
 </template>
+
+<script>
+import Articulo from '../components/Articulo'
+
+export default {
+  name:'Articulos',
+  components: {
+    Articulo,
+  }
+}
+</script>
